@@ -35,19 +35,26 @@ Sakarya Üniversitesi, Coğrafi Bilgi Sistemleri dersi **Ödev 2**. Türkiye'nin
 ├── stiller/                      Her katmanın QGIS stil dosyası (.qml)
 ├── goruntuler/                   Dört ölçekten harita görüntüleri
 ├── cikti/                        A3 PDF harita (başlık, lejant, ölçek çubuğu, kuzey oku)
-├── veri/                         Kırpılmış GeoPackage verileri (göller, Adapazarı binaları ve arazi kullanımı)
-└── veri_ham/sinirlar/            geoBoundaries il (ADM1) ve ilçe (ADM2) sınırları
+├── veri/                         Yollar, akarsular, göller, Adapazarı binaları ve arazi kullanımı (GeoPackage)
+└── veri_ham/                     Yerleşimler (OSM) ve il/ilçe sınırları (geoBoundaries)
 ```
 
 ## Projeyi açmak için
 
-Büyük OSM dosyaları (yaklaşık 4 GB) ile Türkiye geneli akarsu dosyası GitHub'ın dosya boyutu sınırını aştığı için depoda yoktur. Projeyi çalıştırmak için:
-
-1. [Geofabrik – Turkey](https://download.geofabrik.de/europe/turkey.html) sayfasından `turkey-latest-free.shp.zip` dosyasını indirip `veri_ham/osm/` klasörüne açın.
-2. QGIS'te **Vektör → Coğrafi İşleme Araçları → Kırp** ile `gis_osm_waterways_free_1.shp` dosyasını İl Sınırları ile kırpın ve `veri/Turkiye_Akarsular.gpkg` olarak kaydedin.
-3. `Turkiye_Harita.qgz` dosyasını açın. Eksik katman uyarısı çıkarsa dosya yollarını gösterin.
+1. Depoyu indirin (**Code → Download ZIP**) ve zip'i bir klasöre **çıkarın**. Zip'in içinden doğrudan açarsanız QGIS katmanları bulamaz.
+2. `Turkiye_Harita.qgz` dosyasını QGIS 3.x ile açın.
 
 Katman stilleri `stiller/` klasöründeki `.qml` dosyalarından da yüklenebilir: **katmana sağ tık → Stiller → Stil Yükle**.
+
+### Verilerin hazırlanması
+
+Veriler, dosya boyutunu küçük tutmak için ham OSM verisinden süzülüp sadeleştirilmiştir:
+
+- Otoyol, devlet, ana ve ikincil yollar ile nehirler Türkiye genelinde; ilçe yolları, sokaklar, patikalar ve dereler yalnızca Sakarya çevresinde tutulmuştur.
+- Sakarya dışındaki geometriler sadeleştirilmiştir; fark haritada gözle görülmez.
+- Binalar ve arazi kullanımı Adapazarı ilçe sınırıyla kırpılmıştır.
+
+Ham veriyi yeniden indirmek için: [Geofabrik – Turkey](https://download.geofabrik.de/europe/turkey.html) (`turkey-latest-free.shp.zip`).
 
 ## Veri kaynakları ve lisanslar
 
