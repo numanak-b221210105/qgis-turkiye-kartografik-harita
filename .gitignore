@@ -1,0 +1,13 @@
+# Teslim paketleri (depoya girmez)
+*.zip
+
+# QGIS geçici dosyaları ve indeksler
+*.qix
+*.qgz~
+*.qgs~
+*.gpkg-shm
+*.gpkg-wal
+
+# Windows
+Thumbs.db
+desktop.ini
